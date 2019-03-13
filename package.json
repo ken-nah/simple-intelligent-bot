@@ -2,7 +2,7 @@
   "name": "final_year_project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon index.js"
   },
@@ -12,6 +12,7 @@
   "dependencies": {
     "apiai": "^4.0.3",
     "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "socket.io": "^2.2.0"
   }

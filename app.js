@@ -6,12 +6,16 @@ require('dotenv').config()
 const APIAI_TOKEN = process.env.APIAI_TOKEN;
 const APIAI_SESSION_ID = process.env.APIAI_SESSION_ID;
 
+const authRoutes = require('./routes/authRoutes');
+
 app.use(express.static(path.join(__dirname, "public"))); //js,css
 app.use(express.static(path.join(__dirname, "views"))); //html
 
-app.get("/", (req, res) => {
-  return res.sendFile("index.html");
-});
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
+app.use('/auth',authRoutes);
+
 
 const port = process.env.PORT || 3000;
 
