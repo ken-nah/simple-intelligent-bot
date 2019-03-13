@@ -1,3 +1,5 @@
 exports.getLogin = (req, res) => {
-  res.send("Login Page..");
+  return res.render("auth/login", {
+    pageTitle: "Login to your account"
+  });
 };
