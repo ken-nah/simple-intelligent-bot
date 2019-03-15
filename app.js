@@ -34,6 +34,10 @@ app.get("/", (req, res) => {
   return res.sendFile("index.html");
 });
 
+app.get('/auth/error', (req,res) => {
+  return res.render('errors/401');
+})
+
 io.on("connection", function(socket) {
   socket.on("chat message", text => {
     // Get a reply from API.ai
