@@ -1,61 +1,95 @@
-<%- include('../includes/head.ejs') %>
-<link rel="stylesheet" href="/css/login.css" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/css/login.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="/images/img-01.png" alt="IMG">
+				</div>
 
-<%- include('../includes/body.ejs') %>
+				<form class="login100-form validate-form">
+					<span class="login100-form-title">
+						Member Login
+					</span>
 
-<div class="page">
-  <div class="container">
-    <div class="left">
-      <div class="login">Login</div>
-      <div class="eula">
-        Inorder to use our intelligent virtual agent we need
-        to confirm ownership.Enter your your bank a/c no.
-        and pin to continue
-      </div>
-    </div>
-    <div class="right">
-      <svg viewBox="0 0 320 300">
-        <defs>
-          <linearGradient
-            inkscape:collect="always"
-            id="linearGradient"
-            x1="13"
-            y1="193.49992"
-            x2="307"
-            y2="193.49992"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop
-              style="stop-color:#ff00ff;"
-              offset="0"
-              id="stop876"
-            />
-            <stop
-              style="stop-color:#ff0000;"
-              offset="1"
-              id="stop878"
-            />
-          </linearGradient>
-        </defs>
-        <path
-          d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143"
-        />
-      </svg>
-      <div class="form">
-        <label for="email">Bank a/c No.</label>
-        <input
-          type="account"
-          id="account"
-          autocomplete="off"
-        />
-        <label for="password">Password</label>
-        <input type="password" id="password" />
-        <input type="submit" id="submit" value="Continue" />
-      </div>
-    </div>
-  </div>
-</div>
+					<div class="wrap-input100 validate-input" data-validate = "Valid Bank a/c no. is required">
+						<input class="input100" type="text" name="text" placeholder="Your Bank a/c" autocomplete="off">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
-<script src="/js/login.js"></script>
-<%- include('../includes/end.ejs') %>
+					<div class="wrap-input100 validate-input" data-validate = "Bank Pin is required">
+						<input class="input100" type="password" name="pass" placeholder="Bank Pin">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Continue
+						</button>
+					</div>
+
+					<div class="text-center p-t-12">
+						<span class="txt1">
+							
+						</span>
+					</div>
+
+					<div class="text-center p-t-136">
+						<a class="txt2" href="/">
+							Return to Homepage
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+<!--===============================================================================================-->	
+	<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/vendor/bootstrap/js/popper.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="/js/login.js"></script>
+
+</body>
+</html>

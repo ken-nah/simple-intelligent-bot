@@ -1,56 +1,57 @@
-var current = null;
-document
-  .querySelector("#account")
-  .addEventListener("focus", function(e) {
-    if (current) current.pause();
-    current = anime({
-      targets: "path",
-      strokeDashoffset: {
-        value: 0,
-        duration: 700,
-        easing: "easeOutQuart"
-      },
-      strokeDasharray: {
-        value: "240 1386",
-        duration: 700,
-        easing: "easeOutQuart"
-      }
-    });
-  });
-document
-  .querySelector("#password")
-  .addEventListener("focus", function(e) {
-    if (current) current.pause();
-    current = anime({
-      targets: "path",
-      strokeDashoffset: {
-        value: -336,
-        duration: 700,
-        easing: "easeOutQuart"
-      },
-      strokeDasharray: {
-        value: "240 1386",
-        duration: 700,
-        easing: "easeOutQuart"
-      }
-    });
-  });
 
-document
-  .querySelector("#submit")
-  .addEventListener("focus", function(e) {
-    if (current) current.pause();
-    current = anime({
-      targets: "path",
-      strokeDashoffset: {
-        value: -730,
-        duration: 700,
-        easing: "easeOutQuart"
-      },
-      strokeDasharray: {
-        value: "530 1386",
-        duration: 700,
-        easing: "easeOutQuart"
-      }
+(function ($) {
+    "use strict";
+
+    
+    /*==================================================================
+    [ Validate ]*/
+    var input = $('.validate-input .input100');
+
+    $('.validate-form').on('submit',function(){
+        var check = true;
+
+        for(var i=0; i<input.length; i++) {
+            if(validate(input[i]) == false){
+                showValidate(input[i]);
+                check=false;
+            }
+        }
+
+        return check;
     });
-  });
+
+
+    $('.validate-form .input100').each(function(){
+        $(this).focus(function(){
+           hideValidate(this);
+        });
+    });
+
+    function validate (input) {
+        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+                return false;
+            }
+        }
+        else {
+            if($(input).val().trim() == ''){
+                return false;
+            }
+        }
+    }
+
+    function showValidate(input) {
+        var thisAlert = $(input).parent();
+
+        $(thisAlert).addClass('alert-validate');
+    }
+
+    function hideValidate(input) {
+        var thisAlert = $(input).parent();
+
+        $(thisAlert).removeClass('alert-validate');
+    }
+    
+    
+
+})(jQuery);
