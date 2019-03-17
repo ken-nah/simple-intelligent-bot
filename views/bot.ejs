@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge,chrome=1"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="Simple AI Chat Bot Demo with Web Speech API"
+    />
+
+    <title>
+      Simple Banking AI Demo with Web Speech API
+    </title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="stage">
+      <div class="wrapper">
+        <div class="slash"></div>
+        <div class="sides">
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+        </div>
+        <div class="text">
+          <div class="text--backing">Speak</div>
+          <div class="text--left">
+            <div class="inner">Speak</div>
+          </div>
+          <div class="text--right">
+            <div class="inner">Speak</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section>
+      <div id="i">
+        <div id="p"></div>
+        <div id="h"></div>
+        <div id="o"></div>
+        <div id="n">
+          <div id="e">
+            <input />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p>You said: <em class="output-you">...</em></p>
+        <p>Bot replied: <em class="output-bot">...</em></p>
+      </div>
+    </section>
+
+    <div class="moving-zone">
+      <div class="popup">
+        <div class="popup-content">
+          <p class="popup-text">
+            <b>Contact</b> me if u note some weird behaviour
+            from the virtual <b>agent</b>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

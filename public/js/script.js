@@ -13,7 +13,7 @@ recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
 document
-  .querySelector("button")
+  .querySelector("#e")
   .addEventListener("click", () => {
     recognition.start();
   });

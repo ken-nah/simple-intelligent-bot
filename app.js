@@ -34,8 +34,8 @@ app.get("/", (req, res) => {
   return res.sendFile("index.html");
 });
 
-app.get('/auth/error', (req,res) => {
-  return res.render('errors/401');
+app.get('/bot', (req,res) => {
+  return res.render('bot');
 })
 
 io.on("connection", function(socket) {
