@@ -3,14 +3,16 @@ const socket = io();
 const outputYou = document.querySelector(".output-you");
 const outputBot = document.querySelector(".output-bot");
 
-const SpeechRecognition =
+window.SpeechRecognition =
   window.SpeechRecognition ||
   window.webkitSpeechRecognition;
-const recognition = new SpeechRecognition();
 
-recognition.lang = "en-US";
-recognition.interimResults = false;
-recognition.maxAlternatives = 1;
+const recognition = new SpeechRecognition();
+recognition.interimResults = true;
+
+recognition.addEventListener("speechend", () => {
+  recognition.stop();
+});
 
 document
   .querySelector("#e")
@@ -19,18 +21,15 @@ document
   });
 
 recognition.addEventListener("result", e => {
+  const transcript = Array.from(e.results)
+    .map(result => result[0])
+    .map(result => result.transcript)
+    .join("");
 
-  let last = e.results.length - 1;
-  let text = e.results[last][0].transcript;
-
-  outputYou.textContent = text;
-  console.log("Confidence: " + e.results[0][0].confidence);
-
-  socket.emit("chat message", text);
-});
-
-recognition.addEventListener("speechend", () => {
-  recognition.stop();
+  if (e.results[0].isFinal) {
+    outputYou.textContent = transcript;
+    socket.emit("chat message", transcript);
+  }
 });
 
 recognition.addEventListener("error", e => {
@@ -42,6 +41,10 @@ function synthVoice(text) {
   const utterance = new SpeechSynthesisUtterance();
   utterance.text = text;
   synth.speak(utterance);
+
+  utterance.onend = function(event) {
+    recognition.start();
+  };
 }
 
 socket.on("bot reply", function(replyText) {
