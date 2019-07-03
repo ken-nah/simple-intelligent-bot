@@ -2,9 +2,7 @@ const path = require("path");
 
 const express = require("express");
 const app = express();
-require("dotenv").config();
-const APIAI_TOKEN = process.env.APIAI_TOKEN;
-const APIAI_SESSION_ID = process.env.APIAI_SESSION_ID;
+const { APIAI_TOKEN, APIAI_SESSION_ID } = require("./config");
 
 app.use(express.static(path.join(__dirname, "public"))); //js,css
 app.use(express.static(path.join(__dirname, "views"))); //html
@@ -29,7 +27,6 @@ const apiai = require("apiai")(APIAI_TOKEN);
 app.get("/", (req, res) => {
   return res.render("bot");
 });
-
 
 io.on("connection", function(socket) {
   socket.on("chat message", text => {
