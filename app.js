@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, "views"))); //html
 app.set("view engine", "ejs");
 app.set("views", "views");
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 const server = app.listen(port, () =>
   console.log(`Server Listening on port ${port}...`)
